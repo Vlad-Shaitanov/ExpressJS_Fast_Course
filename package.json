@@ -1,0 +1,29 @@
+{
+  "name": "expressjs_fast_course",
+  "version": "1.0.0",
+  "description": "Простой статический сайт с использованием EJS / REST API приложение с использованием VueJS.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "serve": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vlad-Shaitanov/ExpressJS_Fast_Course.git"
+  },
+  "author": "Vladislav Shaitanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vlad-Shaitanov/ExpressJS_Fast_Course/issues"
+  },
+  "homepage": "https://github.com/Vlad-Shaitanov/ExpressJS_Fast_Course#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "nodemon": "^2.0.15"
+  }
+}

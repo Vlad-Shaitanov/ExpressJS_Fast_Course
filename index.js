@@ -1,0 +1,43 @@
+import express from "express";
+import path from "path"; // Работа с путями
+import { requestTime, logger } from "./middlewares.js";// Мидлвары для расширения запросов
+
+// Определение директории
+const __dirname = path.resolve();
+
+//Если в переменных окружения есть переменная с портом, то возьмем ее, иначе 3000
+const PORT = process.env.PORT ?? 3000;
+
+//Инициализация приложения
+const app = express();
+
+/* Делаем папку статичной. Это позволяет нам не делать get-запрос к каждой
+	странице, а работать сразу со всей папкой*/
+app.use(express.static(path.resolve(__dirname, "static")));
+app.use(requestTime);
+app.use(logger);
+
+
+// обрабатываем get-запрос по указанному урлу
+// app.get(("/"), (request, response) => {
+
+// 	/*Устанавливаем ответ при запросе*/
+
+// 	//(инлайн-метод)
+// 	// response.send("<h1>Hello Express</h1>");
+
+// 	// Установка через файл
+// 	response.sendFile(path.resolve(__dirname, "static", "index.html"));
+// });
+
+app.get(("/download"), (request, response) => {
+	console.log(request.requestTime);
+	// Скачивание определенной страницы
+	response.download(path.resolve(__dirname, "static", "index.html"));
+});
+
+
+//Задаем порт, на котором будем запускать
+app.listen(PORT, () => {
+	console.log(`Сервер был запущен на порте ${PORT}...`);
+});
