@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Vlad-Shaitanov/ExpressJS_Fast_Course#readme",
   "dependencies": {
     "colors": "^1.4.0",
+    "ejs": "^3.1.7",
     "express": "^4.17.3"
   },
   "devDependencies": {
